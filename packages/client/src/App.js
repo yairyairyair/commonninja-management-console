@@ -1,6 +1,21 @@
 import { useEffect, useState } from 'react';
 
-import { request } from './fetch';
+import { addTokenQuery, request } from './fetch';
+
+import * as React from "react";
+import { fetchUtils, Admin, Resource, ListGuesser, CustomRoutes } from 'react-admin';
+import { Route } from "react-router-dom";
+
+import jsonServerProvider from 'ra-data-json-server';
+
+import ComingSoon from './ComingSoon';
+import { CustomLayout } from './CustomLayout';
+
+import AddCardIcon from '@mui/icons-material/AddCard';
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import JavascriptIcon from '@mui/icons-material/Javascript';
+import CategoryIcon from '@mui/icons-material/Category';
 
 import './App.css';
 
@@ -33,28 +48,53 @@ const App = () => {
   }, []);
 
 
-
-  const renderBody = () => {
-    if (loading) {
-      return <p>Loading...</p>;
-    }
-
-    if (!user) {
-      return (
-        <a
-          href={`${REACT_APP_PROXY}/connect?redirectUrl=${encodeURIComponent(
-            window.location.href,
-          )}`}
-        >
-          Connect
-        </a>
-      );
-    }
-
-    return <div>Logged in as: {user.platformUserId}</div>;
+  if (loading) {
+    return <p>Loading...</p>;
   }
 
-  return <div className="App">{renderBody()}</div>;
+  // if (!user) {
+  //   return (
+  //     <a
+  //       href={`${REACT_APP_PROXY}/connect?redirectUrl=${encodeURIComponent(
+  //         window.location.href,
+  //       )}`}
+  //     >
+  //       Connect
+  //     </a>
+  //   );
+  // }
+
+  const cnHttpClient = (url, options = {}) => {
+    if (!options.headers) {
+      options.headers = new Headers({ Accept: 'application/json' });
+    }
+    // add your own headers here
+    // options.headers.set('X-Custom-Header', 'header value here');
+    return fetchUtils.fetchJson(addTokenQuery(url), options);
+  };
+
+  // const dataProvider = jsonServerProvider('/api/ecommerce', cnHttpClient);
+  const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+
+
+  return (
+    <Admin title="Stores Management Console" layout={CustomLayout} dataProvider={dataProvider} dashboard={ComingSoon}>
+      <Resource name='users' list={ListGuesser} />
+      <h1>hey</h1>
+      <Resource name='orders' list={ListGuesser} icon={AddCardIcon} />
+      <Resource name='products' list={ListGuesser} icon={ProductionQuantityLimitsIcon} />
+      <Resource name='customers' list={ListGuesser} icon={SupportAgentIcon} />
+      <Resource name='scripts' list={ListGuesser} icon={JavascriptIcon} />
+      <Resource name='categories' list={ListGuesser} icon={CategoryIcon} />
+      <h1>hey</h1>
+      {/* <Resource name='transactions' list={ListGuesser} icon={ReceiptLongIcon} /> */}
+      {/* <Resource name='notifications' list={ListGuesser} icon={NotificationsIcon} /> */}
+      <CustomRoutes>
+        <Route path="/transactions" element={<ComingSoon />} />
+        <Route path="/notifications" element={<ComingSoon />} />
+      </CustomRoutes>
+    </Admin>
+  );
 }
 
 export default App;
