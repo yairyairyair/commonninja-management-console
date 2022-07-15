@@ -1,4 +1,4 @@
-function addTokenQuery(url) {
+export function addTokenQuery(url) {
   const { searchParams } = new URL(window.location.href);
   const token = searchParams.get('token');
   let finalUrl = url;
