@@ -17,7 +17,7 @@ services:
     #   - ./wordpress:/var/www/html
     #   - ./plugins:/var/www/html/wp-content/plugins
     ports:
-      - "8000:80"
+      - "80:80"
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
