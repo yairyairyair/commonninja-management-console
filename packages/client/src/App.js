@@ -6,17 +6,17 @@ import * as React from "react";
 import { fetchUtils, Admin, Resource, ListGuesser, CustomRoutes } from 'react-admin';
 import { Route } from "react-router-dom";
 
-import jsonServerProvider from 'ra-data-json-server';
-import { commonNinjaServerProvider } from './common-ninja-server-provider';
+import commonNinjaServerProvider from './common-ninja-server-provider';
 
 import ComingSoon from './ComingSoon';
 import { CustomLayout } from './CustomLayout';
 
-import AddCardIcon from '@mui/icons-material/AddCard';
-import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import JavascriptIcon from '@mui/icons-material/Javascript';
-import CategoryIcon from '@mui/icons-material/Category';
+
+import { Create as OrderCreate, Edit as OrderEdit, List as OrderList, Icon as OrderIcon } from './orders';
+import { Create as ProductCreate, Edit as ProductEdit, List as ProductList, Icon as ProductIcon } from './products';
 
 import './App.css';
 
@@ -76,24 +76,19 @@ const App = () => {
     return fetchUtils.fetchJson(addTokenQuery(url), options);
   };
 
-  const dataProvider = jsonServerProvider('/api/ecommerce', cnHttpClient);
+  // const dataProvider = jsonServerProvider('/api/ecommerce', cnHttpClient);
   // const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
-  // const dataProvider = commonNinjaServerProvider('/api/ecommerce', cnHttpClient);
+  const dataProvider = commonNinjaServerProvider('/api/ecommerce', cnHttpClient);
 
 
   return (
     <Admin title="Stores Management Console" layout={CustomLayout} dataProvider={dataProvider} dashboard={ComingSoon}>
-      <Resource name='users' list={ListGuesser} />
-      <h1>hey</h1>
-      <Resource name='orders' list={ListGuesser} icon={AddCardIcon} />
-      <Resource name='products' list={ListGuesser} icon={ProductionQuantityLimitsIcon} />
+      <Resource name='orders' list={OrderList} create={OrderCreate} edit={OrderEdit} icon={OrderIcon} />
+      <Resource name='products' list={ProductList} create={ProductCreate} edit={ProductEdit} icon={ProductIcon} />
       <Resource name='customers' list={ListGuesser} icon={SupportAgentIcon} />
       <Resource name='scripts' list={ListGuesser} icon={JavascriptIcon} />
-      <Resource name='categories' list={ListGuesser} icon={CategoryIcon} />
-      <h1>hey</h1>
-      {/* <Resource name='transactions' list={ListGuesser} icon={ReceiptLongIcon} /> */}
-      {/* <Resource name='notifications' list={ListGuesser} icon={NotificationsIcon} /> */}
       <CustomRoutes>
+        <Route path='/categories' element={<ComingSoon />} />
         <Route path="/transactions" element={<ComingSoon />} />
         <Route path="/notifications" element={<ComingSoon />} />
       </CustomRoutes>
