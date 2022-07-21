@@ -7,6 +7,7 @@ import { fetchUtils, Admin, Resource, ListGuesser, CustomRoutes } from 'react-ad
 import { Route } from "react-router-dom";
 
 import jsonServerProvider from 'ra-data-json-server';
+import { commonNinjaServerProvider } from './common-ninja-server-provider';
 
 import ComingSoon from './ComingSoon';
 import { CustomLayout } from './CustomLayout';
@@ -49,20 +50,22 @@ const App = () => {
 
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className='text-center'>Loading...</p>;
   }
 
-  // if (!user) {
-  //   return (
-  //     <a
-  //       href={`${REACT_APP_PROXY}/connect?redirectUrl=${encodeURIComponent(
-  //         window.location.href,
-  //       )}`}
-  //     >
-  //       Connect
-  //     </a>
-  //   );
-  // }
+  if (!user) {
+    return (
+      <a
+        href={`${REACT_APP_PROXY}/connect?redirectUrl=${encodeURIComponent(
+          window.location.href,
+        )}`}
+      >
+        <p className='text-center'>
+          Connect
+        </p>
+      </a>
+    );
+  }
 
   const cnHttpClient = (url, options = {}) => {
     if (!options.headers) {
@@ -73,8 +76,9 @@ const App = () => {
     return fetchUtils.fetchJson(addTokenQuery(url), options);
   };
 
-  // const dataProvider = jsonServerProvider('/api/ecommerce', cnHttpClient);
-  const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+  const dataProvider = jsonServerProvider('/api/ecommerce', cnHttpClient);
+  // const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+  // const dataProvider = commonNinjaServerProvider('/api/ecommerce', cnHttpClient);
 
 
   return (
