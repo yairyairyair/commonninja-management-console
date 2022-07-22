@@ -12,7 +12,7 @@ import ComingSoon from './ComingSoon';
 import { CustomLayout } from './CustomLayout';
 
 import Dashboard from './dashboard';
-import { Create as OrderCreate, List as OrderList, Icon as OrderIcon } from './orders';
+import { List as OrderList, Icon as OrderIcon } from './orders';
 import { Create as ProductCreate, List as ProductList, Icon as ProductIcon } from './products';
 import { Create as ScriptCreate, List as ScriptList, Icon as ScriptIcon } from './scripts';
 import { List as CategoryList, Icon as CategoryIcon } from './categories';
@@ -82,7 +82,7 @@ const App = () => {
 
   return (
     <Admin title="Stores Management Console" layout={CustomLayout} dataProvider={dataProvider} dashboard={Dashboard} disableTelemetry>
-      <Resource name='orders' list={OrderList} create={OrderCreate} icon={OrderIcon} />
+      <Resource name='orders' list={OrderList} icon={OrderIcon} />
       <Resource name='products' list={ProductList} create={ProductCreate} icon={ProductIcon} />
       <Resource name='scripts' list={ScriptList} create={ScriptCreate} icon={ScriptIcon} />
       <Resource name='categories' list={CategoryList} icon={CategoryIcon} />
