@@ -24,7 +24,7 @@ const Dashboard = () => {
                 <div className="text-center">
                     <Typography variant="h5" component="div">Store: {storeDetails.name}</Typography>
                     <Typography variant="h6" component="div">
-                        <a href={storeDetails.url} target="_blank" rel="noopener noreferrer">
+                        <a href={`//${storeDetails.url}`} target="_blank" rel="noopener noreferrer">
                             {storeDetails.url}
                         </a>
                     </Typography>
