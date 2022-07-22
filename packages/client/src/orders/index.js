@@ -44,9 +44,6 @@ const OrderIcon = AddCardIcon;
 //     address2?: string;
 //   }
 
-// verify order and types fields
-
-// TODO: copy this from console
 const OrderList = () => (
     <List>
         <Datagrid bulkActionButtons={false}>
