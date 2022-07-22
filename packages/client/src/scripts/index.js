@@ -1,4 +1,4 @@
-import { Create, Datagrid, List, required, SimpleForm, TextField, UrlField, TextInput, BooleanField, BooleanInput, SelectInput } from "react-admin";
+import { Create, Datagrid, List, required, SimpleForm, TextField, UrlField, TextInput, BooleanInput, SelectInput } from "react-admin";
 import JavascriptIcon from '@mui/icons-material/Javascript';
 
 const ScriptIcon = JavascriptIcon;

@@ -1,4 +1,4 @@
-import { Create, Datagrid, DateField, List, DateInput, Edit, required, SimpleForm, TextField, UrlField, TextInput, CloneButton, ImageField, ImageInput, NumberField, NumberInput, SingleFieldList, ArrayInput, SimpleFormIterator, ArrayField } from "react-admin";
+import { Create, Datagrid, DateField, List, DateInput, Edit, required, SimpleForm, TextField, UrlField, TextInput, ImageField, ImageInput, NumberField, NumberInput, ArrayInput, SimpleFormIterator} from "react-admin";
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 
 const ProductIcon = ProductionQuantityLimitsIcon;
