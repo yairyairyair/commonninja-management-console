@@ -4,7 +4,7 @@ import AddCardIcon from '@mui/icons-material/AddCard';
 const OrderIcon = AddCardIcon;
 
 // TODO: copy this from console
-const OrderList = (props) => ListGuesser;
+const OrderList = ListGuesser;
 
 const OrderCreate = (props) => (
     <Create {...props}>
