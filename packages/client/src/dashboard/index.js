@@ -3,7 +3,7 @@ import { Card, CardContent, Typography, CircularProgress } from '@mui/material';
 import { Title } from 'react-admin';
 import { addTokenQuery } from "../fetch";
 import Chart from 'react-apexcharts'
-import { LINE_CHART_STATE, DONUT_CHART_STATE, BUBBLE_CHART_STATE } from "../charts-mock-data";
+import { LINE_CHART_STATE, DONUT_CHART_STATE, BUBBLE_CHART_STATE, BAR_CHART_STATE } from "../charts-mock-data";
 
 const STORE_DETAILS_ENDPOINT = '/api/ecommerce/store-details';
 
@@ -41,6 +41,13 @@ const Dashboard = () => {
                             options={LINE_CHART_STATE.options}
                             series={LINE_CHART_STATE.series}
                             type={'line'}
+                            width={'500'}
+                            height={'400'}
+                        />
+                        <Chart
+                            options={BAR_CHART_STATE.options}
+                            series={BAR_CHART_STATE.series}
+                            type={'bar'}
                             width={'500'}
                             height={'400'}
                         />

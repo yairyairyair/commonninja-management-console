@@ -1,12 +1,27 @@
 const LINE_CHART_STATE = {
     options: {
+        labels: [...Array(24).keys()].map(n => `2022-07-0${n + 1}`),
         xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
-        }
+            type: 'datetime',
+        },
+        title: {
+            text: '$13,595',
+            offsetX: 30,
+            style: {
+                fontSize: '24px',
+            }
+        },
+        subtitle: {
+            text: 'Revenue',
+            offsetX: 30,
+            style: {
+                fontSize: '14px',
+            }
+        },
     },
     series: [{
-        name: 'series-1',
-        data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
+        name: 'Revenue',
+        data: [30, 40, 37, 10, 35, 50, 49, 60, 70, 91, 125, 130, 140, 150, 160, 170, 170, 170, 180, 200, 200, 220, 220, 230]
     }]
 };
 
@@ -16,6 +31,9 @@ const DONUT_CHART_STATE = {
     options: {
         title: {
             text: 'Orders Status',
+            style: {
+                fontSize: '24px',
+            },
         },
         labels: statuses,
         dataLabels: {
@@ -23,6 +41,64 @@ const DONUT_CHART_STATE = {
         },
     },
     series: [2, 74, 1, 3, 20, 0, 0, 0]
+}
+
+const BAR_CHART_STATE = {
+    options: {
+        chart: {
+            type: 'bar',
+            height: 380,
+            width: '100%',
+            stacked: true,
+        },
+        plotOptions: {
+            bar: {
+                columnWidth: '45%',
+            }
+        },
+        labels: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+        xaxis: {
+            labels: {
+                show: false
+            },
+            axisBorder: {
+                show: false
+            },
+            axisTicks: {
+                show: false
+            },
+        },
+        yaxis: {
+            axisBorder: {
+                show: false
+            },
+            axisTicks: {
+                show: false
+            },
+            labels: {
+                style: {
+                    colors: '#78909c'
+                }
+            }
+        },
+        title: {
+            text: 'Monthly Sales',
+            align: 'left',
+            style: {
+                fontSize: '18px'
+            }
+        },
+        dataLabels: {
+            enabled: false,
+        },
+    },
+    series: [{
+        name: "Clothing",
+        data: [42, 52, 16, 55, 59, 51, 45, 32, 26, 33, 44, 51, 42, 56],
+    }, {
+        name: "Shoes",
+        data: [6, 12, 4, 7, 5, 3, 6, 4, 3, 3, 5, 6, 7, 4],
+    }],
 }
 
 
@@ -111,5 +187,6 @@ const BUBBLE_CHART_STATE = {
 export {
     LINE_CHART_STATE,
     DONUT_CHART_STATE,
+    BAR_CHART_STATE,
     BUBBLE_CHART_STATE,
 }
