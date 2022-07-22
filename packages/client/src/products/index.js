@@ -16,6 +16,7 @@ const ProductList = () => (
             <TextField source="price.currencyCode" />
             <TextField source="images" />
             <TextField source="status" />
+            <TextField source="sku" />
             <TextField source="vendor" />
         </Datagrid>
     </List>
