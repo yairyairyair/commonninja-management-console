@@ -4760,7 +4760,6 @@ __metadata:
     "@testing-library/user-event": ^13.5.0
     "@types/prop-types": ^15
     prop-types: ^15.8.1
-    ra-data-json-server: ^4.2.1
     react: ^18.2.0
     react-admin: ^4.2.2
     react-dom: ^18.2.0
@@ -11325,16 +11324,6 @@ __metadata:
     react-router: ^6.1.0
     react-router-dom: ^6.1.0
   checksum: baf0fe24b609f57d20d56362bb977a90d926786bcaddb70bc9b58bbf8f1bac2da0b1ccb452a45f733bc958dfb92bbba2373cc499fc9a66c7e82ea3d0a6be5bb9
-  languageName: node
-  linkType: hard
-
-"ra-data-json-server@npm:^4.2.1":
-  version: 4.2.1
-  resolution: "ra-data-json-server@npm:4.2.1"
-  dependencies:
-    query-string: ^7.1.1
-    ra-core: ^4.2.1
-  checksum: 174c985e5a56666060ce5d5fa368969016ac621f92413083eb51a3908dec37e0a1c94ad5179643cb2eaa3ba00fb7e4f4956d3cc704eb11c0b4a65be9ca870547
   languageName: node
   linkType: hard
 
