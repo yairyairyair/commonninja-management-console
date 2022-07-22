@@ -6,7 +6,7 @@ const ComingSoon = () => (
     <Card style={{marginTop: '100px'}}>
         <Title title="Coming Soon" />
         <CardContent>
-            <div style={{textAlign: 'center'}}>
+            <div className='text-center'>
                 Coming Soon
             </div>
         </CardContent>
