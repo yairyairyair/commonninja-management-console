@@ -15,8 +15,8 @@ const ScriptIcon = JavascriptIcon;
 // }
 
 const ScriptList = () => (
-    <List bulkActionButtons={false} >
-        <Datagrid>
+    <List>
+        <Datagrid bulkActionButtons={false} >
             <TextField source="id" />
             <TextField source="name" />
             <UrlField source="src" />

@@ -12,8 +12,8 @@ import CategoryIcon from '@mui/icons-material/Category';
 // }
 
 const CategoryList = () => (
-    <List bulkActionButtons={false} >
-        <Datagrid>
+    <List>
+        <Datagrid bulkActionButtons={false} >
             <TextField source="id" />
             <TextField source="name" />
             <TextField source="description" />
