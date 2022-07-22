@@ -1,4 +1,4 @@
-import { Create, Datagrid, DateField, List, DateInput, Edit, EditButton, ReferenceManyField, required, SimpleForm, TextField, UrlField, TextInput, ListGuesser } from "react-admin";
+import { Create, Datagrid, DateField, DateInput, Edit, EditButton, ReferenceManyField, required, SimpleForm, TextField, TextInput, ListGuesser } from "react-admin";
 import AddCardIcon from '@mui/icons-material/AddCard';
 
 const OrderIcon = AddCardIcon;

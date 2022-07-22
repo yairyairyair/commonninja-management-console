@@ -13,10 +13,11 @@ import { CustomLayout } from './CustomLayout';
 
 
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
-import JavascriptIcon from '@mui/icons-material/Javascript';
 
-import { Create as OrderCreate, Edit as OrderEdit, List as OrderList, Icon as OrderIcon } from './orders';
-import { Create as ProductCreate, Edit as ProductEdit, List as ProductList, Icon as ProductIcon } from './products';
+import { Create as OrderCreate, List as OrderList, Icon as OrderIcon } from './orders';
+import { Create as ProductCreate, List as ProductList, Icon as ProductIcon } from './products';
+import { Create as ScriptCreate, List as ScriptList, Icon as ScriptIcon } from './scripts';
+import { List as CategoryList, Icon as CategoryIcon } from './categories';
 
 import './App.css';
 
@@ -83,12 +84,12 @@ const App = () => {
 
   return (
     <Admin title="Stores Management Console" layout={CustomLayout} dataProvider={dataProvider} dashboard={ComingSoon}>
-      <Resource name='orders' list={OrderList} create={OrderCreate} edit={OrderEdit} icon={OrderIcon} />
-      <Resource name='products' list={ProductList} create={ProductCreate} edit={ProductEdit} icon={ProductIcon} />
+      <Resource name='orders' list={OrderList} create={OrderCreate} icon={OrderIcon} />
+      <Resource name='products' list={ProductList} create={ProductCreate} icon={ProductIcon} />
       <Resource name='customers' list={ListGuesser} icon={SupportAgentIcon} />
-      <Resource name='scripts' list={ListGuesser} icon={JavascriptIcon} />
+      <Resource name='scripts' list={ScriptList} create={ScriptCreate} icon={ScriptIcon} />
+      <Resource name='categories' list={CategoryList} icon={CategoryIcon} />
       <CustomRoutes>
-        <Route path='/categories' element={<ComingSoon />} />
         <Route path="/transactions" element={<ComingSoon />} />
         <Route path="/notifications" element={<ComingSoon />} />
       </CustomRoutes>
