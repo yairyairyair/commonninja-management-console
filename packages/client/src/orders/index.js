@@ -1,4 +1,4 @@
-import { Create, Datagrid, DateField, Edit, SimpleForm, TextField, List, ArrayField, NumberField } from "react-admin";
+import { Create, Datagrid, DateField, Edit, SimpleForm, TextField, List, ArrayField, NumberField, EmailField } from "react-admin";
 import AddCardIcon from '@mui/icons-material/AddCard';
 
 const OrderIcon = AddCardIcon;
@@ -56,7 +56,7 @@ const OrderList = () => (
             <TextField source="shippingTax" />
             <TextField source="note" />
             <TextField source="customer.id" />
-            <TextField source="customer.email" />
+            <EmailField source="customer.email" />
             <TextField source="customer.acceptMarketing" />
             <TextField source="totalDiscount" />
             <TextField source="billingAddress.zip" />

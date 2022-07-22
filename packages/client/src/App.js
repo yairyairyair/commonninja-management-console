@@ -14,6 +14,7 @@ import { CustomLayout } from './CustomLayout';
 import Dashboard from './dashboard';
 import { List as OrderList, Icon as OrderIcon } from './orders';
 import { Create as ProductCreate, List as ProductList, Icon as ProductIcon } from './products';
+import { List as CustomerList, Icon as CustomerIcon } from './customers';
 import { Create as ScriptCreate, List as ScriptList, Icon as ScriptIcon } from './scripts';
 import { List as CategoryList, Icon as CategoryIcon } from './categories';
 
@@ -84,10 +85,10 @@ const App = () => {
     <Admin title="Stores Management Console" layout={CustomLayout} dataProvider={dataProvider} dashboard={Dashboard} disableTelemetry>
       <Resource name='orders' list={OrderList} icon={OrderIcon} />
       <Resource name='products' list={ProductList} create={ProductCreate} icon={ProductIcon} />
+      <Resource name='customers' list={CustomerList} icon={CustomerIcon} />
       <Resource name='scripts' list={ScriptList} create={ScriptCreate} icon={ScriptIcon} />
       <Resource name='categories' list={CategoryList} icon={CategoryIcon} />
       <CustomRoutes>
-        <Route path="/customers" element={<ComingSoon />} />
         <Route path="/transactions" element={<ComingSoon />} />
         <Route path="/notifications" element={<ComingSoon />} />
       </CustomRoutes>

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { createElement } from 'react';
 import { DashboardMenuItem, Menu, MenuItemLink, useResourceDefinitions, useSidebarState } from 'react-admin';
 import DefaultIcon from '@mui/icons-material/ViewList';
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
@@ -28,13 +27,6 @@ export const CustomMenu = (props) => {
                 />
             ))}
             {/* add your custom menus here */}
-            <MenuItemLink
-                to={'/customers'}
-                primaryText={'Customers'}
-                leftIcon={<SupportAgentIcon />}
-                onClick={props.onMenuClick}
-                sidebarIsOpen={open}
-            />
             <MenuItemLink
                 to={'/transactions'}
                 primaryText={'Transactions'}
