@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { addTokenQuery, request } from './fetch';
 
 import * as React from "react";
-import { fetchUtils, Admin, Resource, ListGuesser, CustomRoutes } from 'react-admin';
+import { fetchUtils, Admin, Resource, CustomRoutes } from 'react-admin';
 import { Route } from "react-router-dom";
 
 import commonNinjaServerProvider from './common-ninja-server-provider';
@@ -11,8 +11,6 @@ import commonNinjaServerProvider from './common-ninja-server-provider';
 import ComingSoon from './ComingSoon';
 import { CustomLayout } from './CustomLayout';
 
-
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 
 import { Create as OrderCreate, List as OrderList, Icon as OrderIcon } from './orders';
 import { Create as ProductCreate, List as ProductList, Icon as ProductIcon } from './products';
@@ -86,10 +84,10 @@ const App = () => {
     <Admin title="Stores Management Console" layout={CustomLayout} dataProvider={dataProvider} dashboard={ComingSoon}>
       <Resource name='orders' list={OrderList} create={OrderCreate} icon={OrderIcon} />
       <Resource name='products' list={ProductList} create={ProductCreate} icon={ProductIcon} />
-      <Resource name='customers' list={ListGuesser} icon={SupportAgentIcon} />
       <Resource name='scripts' list={ScriptList} create={ScriptCreate} icon={ScriptIcon} />
       <Resource name='categories' list={CategoryList} icon={CategoryIcon} />
       <CustomRoutes>
+        <Route path="/customers" element={<ComingSoon />} />
         <Route path="/transactions" element={<ComingSoon />} />
         <Route path="/notifications" element={<ComingSoon />} />
       </CustomRoutes>
