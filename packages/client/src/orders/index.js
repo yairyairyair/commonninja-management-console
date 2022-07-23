@@ -52,8 +52,6 @@ const OrderList = () => (
             <TextField source="totalPrice" />
             <TextField source="status" />
             <TextField source="totalShipping" />
-            <TextField source="totalTax" />
-            <TextField source="shippingTax" />
             <TextField source="note" />
             <TextField source="customer.id" />
             <EmailField source="customer.email" />
