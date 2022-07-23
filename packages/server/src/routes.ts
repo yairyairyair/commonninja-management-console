@@ -3,6 +3,8 @@ import CommonNinja from '@commonninja/node-sdk';
 import { sendDiscordMessage } from './discord-api';
 
 const WEBHOOK_TYPES_TO_NOTIFY = ['order.created'];
+const storeUrlToWebhookUrl: any = {}
+
 
 const router: any = Router();
 const { COMMONNINJA_APP_ID, COMMONNINJA_APP_SECRET } = process.env;
@@ -51,6 +53,21 @@ router.all('/api*', async (req: Request, res: Response, next: NextFunction) => {
 	return client.apiProxyMiddleware(req, res, next, '/api');
 });
 
+router.post('/register-webhook', async (req: Request, res: Response) => {
+	try {
+		const client = getCommonNinjaClient(req);
+		const storeDetails = await client.ecommerce.getStoreDetails();
+		const storeUrl = storeDetails.data.url as string;
+		const { webhook } = req.body;
+		// set in hashmap
+		storeUrlToWebhookUrl[storeUrl] = webhook;
+		res.status(200).json({ status: 'ok' });
+	} catch (e) {
+		console.error(`Cannot register webhook message`, e);
+		res.status(500).send((e as Error).message);
+	}
+});
+
 // Validate and handle Common Ninja's webhooks
 router.post('/webhooks', async (req: Request, res: Response) => {
 	try {
@@ -67,8 +84,11 @@ router.post('/webhooks', async (req: Request, res: Response) => {
 		const { type, platform, platformUserId } = req.body;
 		if (WEBHOOK_TYPES_TO_NOTIFY.includes(type)) {
 			const messageToSend = `New order for ${platform} ${platformUserId}`;
-			const discordUserToSend = 'get user here from client';
-			sendDiscordMessage(discordUserToSend, messageToSend);
+			const webhookToSendTo = storeUrlToWebhookUrl[platformUserId as string];
+			if (!webhookToSendTo) {
+				throw new Error('no registered webhook url');
+			}
+			await sendDiscordMessage(webhookToSendTo, messageToSend);
 		}
 		// Send a 200 OK response back to Common Ninja
 		res.sendStatus(200);
