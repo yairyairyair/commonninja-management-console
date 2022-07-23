@@ -1,6 +1,6 @@
-# Common Ninja Starter Kit: NodeJS & ReactJS
+# Common Ninja Management Console
 
-This is a starter kit for building an e-commerce app with Common Ninja, NodeJS, and React.
+This is a management console for managing e-commerce stores based on common ninja platform
 
 ## Getting started
 
