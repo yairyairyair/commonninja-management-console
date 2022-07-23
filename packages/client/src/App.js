@@ -18,6 +18,8 @@ import { List as CustomerList, Icon as CustomerIcon } from './customers';
 import { Create as ScriptCreate, List as ScriptList, Icon as ScriptIcon } from './scripts';
 import { List as CategoryList, Icon as CategoryIcon } from './categories';
 
+import { Notifications } from './notifications';
+
 import './App.css';
 
 const { REACT_APP_PROXY = '' } = process.env;
@@ -90,7 +92,7 @@ const App = () => {
       <Resource name='categories' list={CategoryList} icon={CategoryIcon} />
       <CustomRoutes>
         <Route path="/transactions" element={<ComingSoon />} />
-        <Route path="/notifications" element={<ComingSoon />} />
+        <Route path="/notifications" element={<Notifications />} />
       </CustomRoutes>
     </Admin>
   );
