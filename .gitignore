@@ -1,3 +1,5 @@
+.vercel
+
 # Dist
 dist
 client/build
@@ -77,3 +79,4 @@ typings/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.vercel

@@ -1,0 +1,45 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "alias": "store-management-console",
+    "routes": [
+        {
+            "src": "/connect(.*)",
+            "methods": [
+                "GET"
+            ],
+            "dest": "src/index.ts"
+        },
+        {
+            "src": "/api(.*)",
+            "dest": "src/index.ts"
+        },
+        {
+            "src": "/register-webhook(.*)",
+            "methods": [
+                "POST"
+            ],
+            "dest": "src/index.ts"
+        },
+        {
+            "src": "/webhooks(.*)",
+            "methods": [
+                "POST"
+            ],
+            "dest": "src/index.ts"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "public/$1"
+        }
+    ],
+    "builds": [
+        {
+            "src": "src/index.ts",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "public/**",
+            "use": "@vercel/static"
+        }
+    ]
+}
