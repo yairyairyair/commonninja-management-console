@@ -3,10 +3,10 @@ import CommonNinja from '@commonninja/node-sdk';
 import { sendDiscordMessage } from './discord-api';
 
 const WEBHOOK_TYPES_TO_NOTIFY = ['order.created'];
-const storeUrlToWebhookUrl: any = {}
+const storeUrlToWebhookUrl: { [key: string]: string; } = {}
 
 
-const router: any = Router();
+const router: Router = Router();
 const { COMMONNINJA_APP_ID, COMMONNINJA_APP_SECRET } = process.env;
 
 function getCommonNinjaClient(req: Request) {
@@ -84,7 +84,7 @@ router.post('/webhooks', async (req: Request, res: Response) => {
 		const { type, platform, platformUserId } = req.body;
 		if (WEBHOOK_TYPES_TO_NOTIFY.includes(type)) {
 			const messageToSend = `New order for ${platform} ${platformUserId}`;
-			const webhookToSendTo = storeUrlToWebhookUrl[platformUserId as string];
+			const webhookToSendTo = storeUrlToWebhookUrl[platformUserId];
 			if (!webhookToSendTo) {
 				throw new Error('no registered webhook url');
 			}
