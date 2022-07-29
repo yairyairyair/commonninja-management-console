@@ -12,8 +12,8 @@
     "dist"
   ],
   "scripts": {
-    "start": "node ./dist/app.js",
-    "dev": "nodemon src/app.ts",
+    "start": "node ./dist/www.js",
+    "dev": "nodemon src/www.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
     "clean": "rimraf dist/*",
