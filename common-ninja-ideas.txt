@@ -1,0 +1,32 @@
+
+common ninja plugin ideas
+
+- embed: rating stars X
+- embed: product description based on image via AI model X
+- embed: autosort based on rating or clicks X
+- embed: store locator, show store location on google maps + link + waze directions if needed X
+- embed: website search for searching fulltext for all products and maybe via their images even via AI model X
+
+- backoffice: events of twitch, discord and email to store owner events and maybe auto email to customer X
+
+
+THIS ONE:
+- backoffice: Admin Management app V
+
+- alert on new order for choosing (twitch or discord) and webhooks, maybe auto email to customer
+- admin dashboards, orders on map, and statuses and more
+- tables of orders, customers to follow up with emails
+- CRUDS - products CRUD, can also CRUD storage
+
+dashboard:
+ - map with orders locations
+ - data on current store with platform
+
+CRUDS:
+ - tables of orders (filtering + icons for status), customers (with send email button), products, scripts, categories (implement last), transactions(coming soon)
+
+notifications (premium version):
+ - discord
+ - twitch (coming soon)
+ - webhook (coming soon)
+ 
